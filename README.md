@@ -42,8 +42,6 @@
 
 # 
 
-# ```text
-
 # agent/                 LLM-driven discovery
 
 # app/                   Local banking-style demo application
