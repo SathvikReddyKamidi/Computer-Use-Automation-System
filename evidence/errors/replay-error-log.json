@@ -1,0 +1,11 @@
+{
+  "run_id": "replay_error_001",
+  "mode": "deterministic_replay",
+  "scenario": "Invalid account selector",
+  "status": "failed",
+  "error_type": "TargetNotFound",
+  "error_message": "The configured target selector was not found on the live page.",
+  "recoverable": true,
+  "recovery_action": "Stop execution, preserve current state, request human review, and avoid guessing a replacement target.",
+  "timestamp": "2026-09-22T18:05:36.425983+00:00"
+}

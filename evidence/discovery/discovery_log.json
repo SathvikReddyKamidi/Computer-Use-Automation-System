@@ -1,0 +1,38 @@
+{
+  "run_id": "discovery_transfer_001",
+  "mode": "discovery",
+  "agent": "playwright_demo",
+  "target_url": "http://127.0.0.1:8001",
+  "goal": "Submit a transfer through the Demo Credit Union application.",
+  "actions": [
+    {
+      "action": "navigate",
+      "target": "/",
+      "status": "success"
+    },
+    {
+      "action": "fill",
+      "target": "account_number",
+      "value": "[REDACTED]",
+      "status": "success"
+    },
+    {
+      "action": "fill",
+      "target": "amount",
+      "value": 100,
+      "status": "success"
+    },
+    {
+      "action": "click",
+      "target": "Submit Transfer",
+      "status": "success"
+    }
+  ],
+  "checkpoint": {
+    "selector": "#success-message",
+    "status": "passed"
+  },
+  "artifact_created": "artifacts/transfer_workflow.json",
+  "screenshot": "evidence/discovery/transfer-success.png",
+  "status": "success"
+}

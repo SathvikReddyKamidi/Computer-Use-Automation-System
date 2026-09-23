@@ -1,0 +1,20 @@
+{
+  "handoff_id": "20260922232515",
+  "status": "resume_requested",
+  "reason": "Demo intervention request",
+  "current_step": "submit_transfer",
+  "context": {
+    "url": "http://127.0.0.1:8001/transfer",
+    "message": "Automation requires human assistance."
+  },
+  "instructions": [
+    "Automation is paused.",
+    "Review the current browser state.",
+    "Resolve the issue manually.",
+    "Record the action taken.",
+    "Confirm that automation may resume."
+  ],
+  "human_action": "Reviewed the issue and approved continuation.",
+  "created_at": "2026-09-22T23:25:15.040269",
+  "resumed_at": "2026-09-22T23:25:32.533482"
+}

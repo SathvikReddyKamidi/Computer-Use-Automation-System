@@ -1,0 +1,118 @@
+{
+  "artifact_id": "demo_credit_union_transfer",
+  "version": "1.1.0",
+  "name": "Submit Transfer",
+  "description": "Submit a funds transfer through the Demo Credit Union web application.",
+  "target": {
+    "base_url": "http://127.0.0.1:8001",
+    "allowed_routes": ["/login", "/dashboard", "/transfer", "/"]
+  },
+  "inputs": {
+    "username": {
+      "type": "string",
+      "required": true,
+      "sensitive": true
+    },
+    "password": {
+      "type": "string",
+      "required": true,
+      "sensitive": true
+    },
+    "account_number": {
+      "type": "string",
+      "required": true,
+      "sensitive": true
+    },
+    "amount": {
+      "type": "number",
+      "required": true,
+      "minimum": 0.01
+    }
+  },
+  "steps": [
+    {
+      "step_id": "open_login_page",
+      "action": "navigate",
+      "url": "/login"
+    },
+    {
+      "step_id": "enter_username",
+      "action": "fill",
+      "target": {
+        "strategy": "css",
+        "selector": "input[name='username']"
+      },
+      "input": "username"
+    },
+    {
+      "step_id": "enter_password",
+      "action": "fill",
+      "target": {
+        "strategy": "css",
+        "selector": "input[name='password']"
+      },
+      "input": "password"
+    },
+    {
+      "step_id": "sign_in",
+      "action": "click",
+      "target": {
+        "strategy": "role",
+        "role": "button",
+        "name": "Sign In to Dashboard"
+      }
+    },
+    {
+      "step_id": "open_dashboard",
+      "action": "navigate",
+      "url": "/dashboard"
+    },
+    {
+      "step_id": "enter_account_number",
+      "action": "fill",
+      "target": {
+        "strategy": "css",
+        "selector": "input[name='account_number']"
+      },
+      "input": "account_number"
+    },
+    {
+      "step_id": "enter_amount",
+      "action": "fill",
+      "target": {
+        "strategy": "css",
+        "selector": "input[name='amount']"
+      },
+      "input": "amount"
+    },
+    {
+      "step_id": "submit_transfer",
+      "action": "click",
+      "target": {
+        "strategy": "role",
+        "role": "button",
+        "name": "Review and Submit Transfer"
+      }
+    }
+  ],
+  "checkpoint": {
+    "type": "element_text",
+    "selector": "#success-message",
+    "contains": "submitted successfully"
+  },
+  "outputs": {
+    "type": "object",
+    "fields": {
+      "confirmation_message": {
+        "type": "string",
+        "source": "#success-message"
+      }
+    }
+  },
+  "safety": {
+    "allowed_actions": ["navigate", "fill", "click", "extract"],
+    "blocked_actions": ["delete", "withdraw", "external_navigation"],
+    "secrets_in_artifact": false,
+    "raw_pii_in_logs": false
+  }
+}

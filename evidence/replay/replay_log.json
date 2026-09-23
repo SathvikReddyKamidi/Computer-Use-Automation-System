@@ -1,0 +1,51 @@
+{
+  "run_id": "20260922233510",
+  "artifact_id": "demo_credit_union_transfer",
+  "artifact_version": "1.1.0",
+  "status": "success",
+  "steps": [
+    {
+      "step_id": "open_login_page",
+      "action": "navigate",
+      "status": "success"
+    },
+    {
+      "step_id": "enter_username",
+      "action": "fill",
+      "status": "success"
+    },
+    {
+      "step_id": "enter_password",
+      "action": "fill",
+      "status": "success"
+    },
+    {
+      "step_id": "sign_in",
+      "action": "click",
+      "status": "success"
+    },
+    {
+      "step_id": "open_dashboard",
+      "action": "navigate",
+      "status": "success"
+    },
+    {
+      "step_id": "enter_account_number",
+      "action": "fill",
+      "status": "success"
+    },
+    {
+      "step_id": "enter_amount",
+      "action": "fill",
+      "status": "success"
+    },
+    {
+      "step_id": "submit_transfer",
+      "action": "click",
+      "status": "success"
+    }
+  ],
+  "output": {
+    "confirmation_message": "Transfer of $250.00 to account 987654321 was submitted successfully."
+  }
+}

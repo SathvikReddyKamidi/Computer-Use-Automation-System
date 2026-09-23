@@ -1,0 +1,81 @@
+{
+  "run_id": "llm_discovery_transfer_001",
+  "mode": "llm_driven_discovery",
+  "goal": "Submit a transfer of 100 dollars to account number 123456789.",
+  "target_url": "http://127.0.0.1:8001",
+  "model": "gpt-4o-mini",
+  "llm_mode": "mock",
+  "actions": [
+    {
+      "action": "navigate",
+      "target": "/",
+      "status": "success"
+    },
+    {
+      "action": "fill",
+      "target": "input[name=\"account_number\"]",
+      "status": "success",
+      "details": {
+        "value": "[REDACTED]"
+      }
+    },
+    {
+      "action": "fill",
+      "target": "input[name=\"amount\"]",
+      "status": "success",
+      "details": {
+        "value": 100
+      }
+    },
+    {
+      "action": "click",
+      "target": "button[type=\"submit\"]",
+      "status": "success"
+    }
+  ],
+  "status": "success",
+  "llm_decision": {
+    "account_field": "input[name=\"account_number\"]",
+    "amount_field": "input[name=\"amount\"]",
+    "submit_button": "button[type=\"submit\"]",
+    "account_value": "123456789",
+    "amount_value": "100",
+    "decision_source": "local_mock_llm",
+    "reasoning": "Selected controls based on live DOM observations."
+  },
+  "observed_elements": [
+    {
+      "index": 0,
+      "tag": "INPUT",
+      "type": null,
+      "name": "account_number",
+      "id": "",
+      "text": "",
+      "placeholder": null
+    },
+    {
+      "index": 1,
+      "tag": "INPUT",
+      "type": "number",
+      "name": "amount",
+      "id": "",
+      "text": "",
+      "placeholder": null
+    },
+    {
+      "index": 2,
+      "tag": "BUTTON",
+      "type": "submit",
+      "name": null,
+      "id": "",
+      "text": "Submit Transfer",
+      "placeholder": null
+    }
+  ],
+  "checkpoint": {
+    "selector": "#success-message",
+    "text": "Transfer of $100.00 to account 123456789 was submitted successfully.",
+    "status": "passed"
+  },
+  "artifact_created": "artifacts/transfer_workflow.json"
+}
